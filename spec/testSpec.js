@@ -26,4 +26,10 @@ describe('sort', function() {
     expect(sort.mergesort([3, 5, 1, 9, 1, 4, 2])).toEqual([1, 1, 2, 3, 4, 5, 9]);
     expect(sort.mergesort([-3, -5, 0, 9, 1, 4, 2])).toEqual([-5, -3, 0, 1, 2, 4, 9]);
   });
+
+  it('should sort with quicksort', () => {
+    expect(sort.quicksort([3, 5, 1, 4, 2])).toEqual([1, 2, 3, 4, 5]);
+    expect(sort.quicksort([3, 5, 1, 9, 1, 4, 2])).toEqual([1, 1, 2, 3, 4, 5, 9]);
+    expect(sort.quicksort([-3, -5, 0, 9, 1, 4, 2])).toEqual([-5, -3, 0, 1, 2, 4, 9]);
+  });
 });
