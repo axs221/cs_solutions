@@ -43,15 +43,13 @@ function mergesort(list) {
 
   while (sortedA.length > 0 && sortedB.length > 0) {
     if (sortedA[0] < sortedB[0]) {
-      finalSorted.push(sortedA.splice(0, 1)[0]);
+      finalSorted.push(sortedA.shift());
     } else {
-      finalSorted.push(sortedB.splice(0, 1)[0]);
+      finalSorted.push(sortedB.shift());
     }
   }
 
-
   finalSorted = finalSorted.concat(sortedA).concat(sortedB);
-
 
   return finalSorted;
 }
@@ -62,18 +60,20 @@ module.exports = {
   mergesort: mergesort
 }
 
-// var arr = [3,5,1,4,2,9,15,23,22,8,12,4,7,21,13,23,17,19,25,77,74,63,2,1,23,4,1,2,421,412,4,5,32,5,235];
-// var arr = [3,5,1,4,2,6];
-// var arr = [3,5,1];
+var arr = [3,5,1,4,2,9,15,23,22,8,12,4,7,21,13,23,17,19,25,77,74,63,2,1,23,4,1,2,421,412,4,5,32,5,235];
+arr = arr.concat(arr).concat(arr).concat(arr);
+arr = arr.concat(arr).concat(arr).concat(arr);
+arr = arr.concat(arr).concat(arr).concat(arr);
+arr = arr.concat(arr).concat(arr).concat(arr);
 
-// console.time("insertion");
-// insertionsort(arr)
-// console.timeEnd("insertion");
+console.time("insertion");
+insertionsort(arr)
+console.timeEnd("insertion");
 
-// console.time("bubble");
-// bubblesort(arr)
-// console.timeEnd("bubble");
+console.time("bubble");
+bubblesort(arr)
+console.timeEnd("bubble");
 
-// console.time("merge");
-// console.log(mergesort(arr))
-// console.timeEnd("merge");
+console.time("merge");
+mergesort(arr)
+console.timeEnd("merge");
