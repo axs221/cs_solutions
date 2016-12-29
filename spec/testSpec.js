@@ -1,5 +1,5 @@
 var fibonacci = require('../app/fibonacci');
-var bubblesort = require('../app/bubblesort');
+var sort = require('../app/sort');
 
 describe('fibonacci', function() {
   it('should do fib', () => {
@@ -9,9 +9,15 @@ describe('fibonacci', function() {
 });
 
 describe('sort', function() {
-  it('should sort', () => {
-    expect(bubblesort([3, 5, 1, 4, 2])).toEqual([1, 2, 3, 4, 5]);
-    expect(bubblesort([3, 5, 1, 9, 1, 4, 2])).toEqual([1, 1, 2, 3, 4, 5, 9]);
-    expect(bubblesort([-3, -5, 0, 9, 1, 4, 2])).toEqual([-5, -3, 0, 1, 2, 4, 9]);
+  it('should sort with bubblesort', () => {
+    expect(sort.bubblesort([3, 5, 1, 4, 2])).toEqual([1, 2, 3, 4, 5]);
+    expect(sort.bubblesort([3, 5, 1, 9, 1, 4, 2])).toEqual([1, 1, 2, 3, 4, 5, 9]);
+    expect(sort.bubblesort([-3, -5, 0, 9, 1, 4, 2])).toEqual([-5, -3, 0, 1, 2, 4, 9]);
+  });
+
+  it('should sort with insertionsort', () => {
+    expect(sort.insertionsort([3, 5, 1, 4, 2])).toEqual([1, 2, 3, 4, 5]);
+    expect(sort.insertionsort([3, 5, 1, 9, 1, 4, 2])).toEqual([1, 1, 2, 3, 4, 5, 9]);
+    expect(sort.insertionsort([-3, -5, 0, 9, 1, 4, 2])).toEqual([-5, -3, 0, 1, 2, 4, 9]);
   });
 });
