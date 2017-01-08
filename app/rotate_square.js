@@ -29,4 +29,25 @@ function printSquare(square) {
   console.log(output);
 }
 
+function cloneSquare(square) {
+  return JSON.parse(JSON.stringify(square));
+}
+
+function rotateSquare(square, clone, xStart, xEnd, yStart, yEnd) {
+  clone = clone || cloneSquare(square);
+  xStart = xStart || 0;
+  xMid = xMid || 0;
+  xEnd = xEnd || square.length - 1;
+  yStart = yStart || 0;
+  yMid = yMid || 0;
+  yEnd = yEnd || square.length - 1;
+
+  rotateSquare(square, clone, xStart, xMid, yStart, yMid);
+  rotateSquare(square, clone, xMid, xEnd, yStart, yMid);
+  rotateSquare(square, clone, xMid, xEnd, yMid, yEnd);
+  rotateSquare(square, clone, xStart, xMid, yMid, yEnd);
+
+  return clone;
+}
+
 printSquare(square);
